@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Users</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+    max-width: 1000px;
+    margin: auto;
+}
+
+        .user-card {
+            border: 3px solid black;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            position: relative;
+            width: 300px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .user-card img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border-radius: 5px; /* Square image */
+            border: 3px solid black;
+        }
+
+        .user-info {
+            padding-right: 100px; /* Prevents text from overlapping with the image */
+        }
+    </style>
+</head>
+<body onload="getData();">
+    <h1 style="font-size: 50px;">ABC Colleges</h1>
+    <h2 style="font-size: 30px;">Library Users</h2>
+    <div id="userData"></div>
+
+    <!-- XML Data Embedded -->
+    <xml id="xmldata" style="display: none;">
+        <users>
+            <user>
+                <name>Louise Dela Cruz</name>
+                <course>BSIT</course>
+                <year_level_section>3A-G1</year_level_section>
+                <adviser>Mr. Ramon Dela Cruz</adviser>
+                <school_year>2025-2026</school_year>
+                <picture>https://i.pinimg.com/736x/5c/65/58/5c6558a17be2e41b4f0d6605194be853.jpg</picture>
+            </user>
+            <user>
+                <name>Maria Cruz</name>
+                <course>BSIT</course>
+                <year_level_section>3A-G1</year_level_section>
+                <adviser>Mr. Ramon Dela Cruz</adviser>
+                <school_year>2025-2026</school_year>
+                <picture>https://i.pinimg.com/736x/66/c5/ae/66c5ae800f619bf181c4ef680b0e142d.jpg</picture>
+            </user>
+            <user>
+                <name>Carlo Dizon</name>
+                <course>BSIT</course>
+                <year_level_section>3A-G1</year_level_section>
+                <adviser>Mr. Ramon Dela Cruz</adviser>
+                <school_year>2025-2026</school_year>
+                <picture>https://i.pinimg.com/736x/94/f5/72/94f5726e1bcf344baf06d53cd0d5079c.jpg</picture>
+            </user>
+            <user>
+                <name>Ryan Dela Cruz</name>
+                <course>BSIT</course>
+                <year_level_section>3A-G1</year_level_section>
+                <adviser>Mr. Ramon Dela Cruz</adviser>
+                <school_year>2025-2026</school_year>
+                <picture>https://i.pinimg.com/736x/75/c8/57/75c857c731c01f22a0dbd48f6d4552d9.jpg</picture>
+            </user>
+            <user>
+                <name>Angela Reyes</name>
+                <course>BSIT</course>
+                <year_level_section>3A-G1</year_level_section>
+                <adviser>Mr. Ramon Dela Cruz</adviser>
+                <school_year>2025-2026</school_year>
+                <picture>https://i.pinimg.com/474x/53/9b/58/539b5861265f747f1d923b40dd8202ec.jpg</picture>
+            </user>
+            <user>
+                <name>Sophia Enriquez</name>
+                <course>BSIT</course>
+                <year_level_section>3A-G1</year_level_section>
+                <adviser>Mr. Ramon Dela Cruz</adviser>
+                <school_year>2025-2026</school_year>
+                <picture>https://i.pinimg.com/736x/1c/5f/dc/1c5fdce014cda06a62ec174753c312aa.jpg</picture>
+            </user>
+            <user>
+                <name>Angelo Balbuena</name>
+                <course>BSIT</course>
+                <year_level_section>3A-G1</year_level_section>
+                <adviser>Mr. Ramon Dela Cruz</adviser>
+                <school_year>2025-2026</school_year>
+                <picture>https://i.pinimg.com/736x/54/57/97/545797a0919cc51614a66c1f15788295.jpg</picture>
+            </user>
+            <user>
+                <name>Mina Santos</name>
+                <course>BSIT</course>
+                <year_level_section>3A-G1</year_level_section>
+                <adviser>Mr. Ramon Dela Cruz</adviser>
+                <school_year>2025-2026</school_year>
+                <picture>https://i.pinimg.com/736x/6f/e9/71/6fe971596887b27fd393bcb74835ed9d.jpg</picture>
+            </user>
+            <user>
+                <name>Angel Torres</name>
+                <course>BSIT</course>
+                <year_level_section>3A-G1</year_level_section>
+                <adviser>Mr. Ramon Dela Cruz</adviser>
+                <school_year>2025-2026</school_year>
+                <picture>https://i.pinimg.com/736x/7e/a1/2b/7ea12b87ec67b66f338b23f38e954260.jpg</picture>
+            </user>
+            <user>
+                <name>Erica Salamanca</name>
+                <course>BSIT</course>
+                <year_level_section>3A-G1</year_level_section>
+                <adviser>Mr. Ramon Dela Cruz</adviser>
+                <school_year>2025-2026</school_year>
+                <picture>https://i.pinimg.com/736x/90/35/18/9035184a107826cdbbd0a8d25d96ae38.jpg</picture>
+            </user>
+        </users>
+    </xml>
+
+    <script>
+        function getData() {
+            let xml = document.getElementById("xmldata");
+            let users = xml.getElementsByTagName("user");
+
+            let output = "<div class='grid-container'>";
+
+            for (let i = 0; i < users.length; i++) {
+                let user = users[i].children;
+
+                let name = user[0].textContent;
+                let course = user[1].textContent;
+                let yearLevelSection = user[2].textContent;
+                let adviser = user[3].textContent;
+                let schoolYear = user[4].textContent;
+                let picture = user[5].textContent;
+
+                output += `
+                    <div class='user-card'>
+                        <img src="${picture}" alt="User Picture">
+                        <div class="user-info">
+                            <b>Name:</b> ${name} <br>
+                            <b>Course:</b> ${course} <br>
+                            <b>Year Level / Section:</b> ${yearLevelSection} <br>
+                            <b>Adviser:</b> ${adviser} <br>
+                            <b>School Year:</b> ${schoolYear} <br>
+                        </div>
+                    </div>
+                `;
+            }
+
+            output += "</div>";
+            document.getElementById("userData").innerHTML = output;
+        }
+    </script>
+</body>
+</html>
